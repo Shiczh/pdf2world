@@ -26,8 +26,11 @@ def read_from_pdf(pdf_file):
 
     # 二进制读取pdf文件内的内容
     with open(pdf_file, 'rb') as file:
+        # 创建PDF资源管理器，管理共享资源
         resource_manage = PDFResourceManager()
         return_str = io.StringIO()
+
+        # 创建一个PDF设备对象
         lap_params = LAParams()
 
         # 内容转换
@@ -40,7 +43,7 @@ def read_from_pdf(pdf_file):
         device.close()
         # 获取转换后的pdf文件内容
         pdf_content = return_str.getvalue()
-        print(pdf_content)
+#        print(pdf_content)
         return pdf_content
 
 
@@ -65,3 +68,5 @@ def pdf_to_world(world_file, pdf_file):
 
 if __name__ == '__main__':
     pdf_to_world("./1.docx", "./test.pdf")
+
+
